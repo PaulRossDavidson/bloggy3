@@ -9,7 +9,7 @@ module.exports = {
 
   attributes: {
 
-    comment:{
+    s:{
       type:'text',
       required: true
     },

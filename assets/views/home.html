@@ -1,0 +1,28 @@
+
+<h1>
+  The Home Page
+  <a href="/post/new" class="pull-right glyphicon glyphicon-plus"></a>
+</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Created</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="post in posts">
+      <td>{{post.id}}</td>
+      <td><a href="/post/{{post.id}}">{{post.title}}</a></td>
+      <td>{{post.body}}</td>
+      <td>{{post.createdAt | date: 'short'}}</td>
+      <td>
+       <a ng-click="deletePost(post)" class="glyphicon glyphicon-trash"></a>
+       <a ng-click="editPost(post)" class="glyphicon glyphicon-pencil"></a>
+      </td>
+    </tr>
+  </tbody>
+</table>

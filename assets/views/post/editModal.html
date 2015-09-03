@@ -1,0 +1,36 @@
+<div class="modal-header">
+    <h3 class="modal-title">Edit Post</h3>
+</div>
+<div class="modal-body">
+<form ng-submit="updatePost()" name="newPostForm" novalidate>
+  <div class="modal-header">
+      <h3 class="modal-title">Edit Post</h3>
+  </div>
+  <div class="modal-body">
+      <div class="form-group" ng-class="{ 'has-error': newPostForm.title.$touched && newPostForm.title.$invalid }">
+        <label>Title</label>
+        <input required ng-minlength="5" ng-maxlength="10" name="title" ng-model="newPost.title" type="text" class="form-control">
+        <div ng-if="newPostForm.title.$touched" ng-messages="newPostForm.title.$error" class="help-block">
+          <div ng-messages-include="/views/messages.html"></div>
+        </div>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-error': newPostForm.body.$touched && newPostForm.body.$invalid }">
+        <label>Body</label>
+        <textarea ng-minlength="3" required name="body" ng-model="newPost.body" class="form-control"></textarea>
+        <div ng-if="newPostForm.body.$touched" ng-messages="newPostForm.body.$error" class="help-block">
+          <div ng-messages-include="/views/messages.html"></div>
+        </div>
+      </div>
+
+  </div>
+  <div class="modal-footer">
+      <button ng-disabled="newPostForm.$invalid" class="btn btn-primary" type="submit">Save</button>
+      <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+  </div>
+</form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">Save</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>
